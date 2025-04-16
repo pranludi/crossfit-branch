@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class ServerError extends RuntimeException {
 
-//  public static final ServerError INVALID_AUTH_SERVER = new ServerError("인증 에러가 발생하였습니다. (20001)", 20001);
-//  public static final ServerError GENERAL_ERROR = new ServerError("에러가 발생하였습니다. (50000)", 50000);
+    public static final ServerError INVALID_AUTH_SERVER = new ServerError("인증 에러가 발생하였습니다. (20001)", 20001);
+    public static final ServerError GENERAL_ERROR = new ServerError("에러가 발생하였습니다. (50000)", 50000);
 
     private String message;
     private int code;
