@@ -1,3 +1,8 @@
+app:
+  server:
+    type: BRANCH_SERVICE
+    id: branch-service-1
+
 spring:
   application:
     name: branch service
@@ -22,3 +27,6 @@ spring:
   grpc:
     server:
       port: 8083
+
+jwt:
+  secret-key: "rYfed5F12iViHmbB7ZufrxIR6MNLG67+4+b6+DhqcRJuFVe7/KxhIb4necxKaCDN"
