@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: branch service
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+#      jdbc-url: 'jdbc:h2:mem:branch'
+      jdbc-url: 'jdbc:h2:tcp://localhost/~/branch'
+      username: branch
+      password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+  grpc:
+    server:
+      port: 8083

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package io.pranludi.crossfit.branch.protobuf;
+
+option java_package = "io.pranludi.crossfit.branch.protobuf";
+option java_multiple_files = true;
+
+import "entities.proto";
+
+service BranchService {
+  rpc SaveBranch (SaveBranchRequest) returns (SaveBranchResponse) {}
+  rpc GetBranch (GetBranchRequest) returns (GetBranchResponse) {}
+  rpc AllBranches (AllBranchesRequest) returns (AllBranchesResponse) {}
+}
+
+message SaveBranchRequest {
+  string password = 1;
+  string name = 2;
+  string email = 3;
+  string phone_number = 4;
+}
+
+message SaveBranchResponse {
+  BranchDTO branch = 1;
+}
+
+message GetBranchRequest {
+}
+
+message GetBranchResponse {
+  BranchDTO branch = 1;
+}
+
+message AllBranchesRequest {
+}
+
+message AllBranchesResponse {
+  repeated BranchDTO branches = 1;
+}
