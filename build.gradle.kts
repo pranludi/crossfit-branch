@@ -16,6 +16,12 @@ java {
   }
 }
 
+configurations {
+  compileOnly {
+    extendsFrom(configurations.annotationProcessor.get())
+  }
+}
+
 repositories {
   mavenCentral()
 }
@@ -30,6 +36,11 @@ dependencies {
   runtimeOnly("com.h2database:h2") // local
   // runtimeOnly("org.postgresql:postgresql") // qa, prod env
 
+  // mapstruct
+  implementation("org.mapstruct:mapstruct:1.5.5.Final")
+  annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
+
+  // jwt
   implementation("io.jsonwebtoken:jjwt-api:0.12.6")
   runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.6")
   runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.6")
