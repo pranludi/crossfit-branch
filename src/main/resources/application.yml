@@ -27,6 +27,8 @@ spring:
   grpc:
     server:
       port: 8083
+  kafka:
+    bootstrap-servers: localhost:10000,localhost:10001,localhost:10002
 
 jwt:
   secret-key: "rYfed5F12iViHmbB7ZufrxIR6MNLG67+4+b6+DhqcRJuFVe7/KxhIb4necxKaCDN"
