@@ -2,6 +2,7 @@ package io.pranludi.crossfit.branch.service;
 
 import io.pranludi.crossfit.branch.domain.BranchEntity;
 import io.pranludi.crossfit.branch.domain.EnvironmentData;
+import io.pranludi.crossfit.branch.exception.ServerError;
 import io.pranludi.crossfit.branch.repository.BranchRepository;
 import io.pranludi.crossfit.branch.repository.dto.BranchDTO;
 import io.pranludi.crossfit.branch.service.mapper.BranchMapper;
@@ -41,7 +42,8 @@ public class BranchService {
     // 지점 조회
     public Function<EnvironmentData, BranchEntity> findById() {
         return (EnvironmentData env) -> {
-            BranchDTO branchDTO = branchRepository.findById(env.id()).orElseThrow();
+            BranchDTO branchDTO = branchRepository.findById(env.id())
+                .orElseThrow(() -> ServerError.BRANCH_NOT_FOUND(env.id()));
             return branchMapper.toEntity(branchDTO);
         };
     }
