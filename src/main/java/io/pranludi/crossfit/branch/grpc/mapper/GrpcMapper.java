@@ -2,7 +2,7 @@ package io.pranludi.crossfit.branch.grpc.mapper;
 
 import com.google.protobuf.Timestamp;
 import io.pranludi.crossfit.branch.domain.BranchEntity;
-import io.pranludi.crossfit.branch.protobuf.BranchDTO;
+import io.pranludi.crossfit.protobuf.BranchDTO;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import org.mapstruct.Mapper;
