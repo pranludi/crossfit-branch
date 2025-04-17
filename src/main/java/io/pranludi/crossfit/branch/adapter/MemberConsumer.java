@@ -1,7 +1,7 @@
 package io.pranludi.crossfit.branch.adapter;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import io.pranludi.crossfit.member.protobuf.MemberKafka;
+import io.pranludi.crossfit.protobuf.kafka.MemberKafka;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
