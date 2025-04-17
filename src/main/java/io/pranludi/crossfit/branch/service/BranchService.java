@@ -6,7 +6,6 @@ import io.pranludi.crossfit.branch.exception.ServerError;
 import io.pranludi.crossfit.branch.repository.BranchRepository;
 import io.pranludi.crossfit.branch.repository.dto.BranchDTO;
 import io.pranludi.crossfit.branch.service.mapper.BranchMapper;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import org.springframework.stereotype.Service;
