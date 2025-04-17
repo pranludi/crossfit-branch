@@ -1,0 +1,3 @@
+[submodule "crossfit-protocol"]
+	path = crossfit-protocol
+	url = git@github.com:pranludi/crossfit-protocol.git
