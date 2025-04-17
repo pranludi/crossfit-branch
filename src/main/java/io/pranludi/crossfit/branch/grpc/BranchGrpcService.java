@@ -4,6 +4,7 @@ import io.grpc.stub.StreamObserver;
 import io.pranludi.crossfit.branch.domain.BranchEntity;
 import io.pranludi.crossfit.branch.grpc.interceptor.GrpcRequestInterceptor;
 import io.pranludi.crossfit.branch.grpc.interceptor.GrpcResponseInterceptor;
+import io.pranludi.crossfit.branch.grpc.interceptor.GrpcTokenInterceptor;
 import io.pranludi.crossfit.branch.grpc.mapper.GrpcMapper;
 import io.pranludi.crossfit.branch.service.BranchService;
 import io.pranludi.crossfit.protobuf.BranchDTO;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.grpc.server.service.GrpcService;
 
-@GrpcService(interceptors = {GrpcRequestInterceptor.class, GrpcResponseInterceptor.class})
+@GrpcService(interceptors = {GrpcTokenInterceptor.class, GrpcRequestInterceptor.class, GrpcResponseInterceptor.class})
 public class BranchGrpcService extends BranchServiceImplBase {
 
     final BranchService branchService;
