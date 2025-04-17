@@ -7,8 +7,11 @@ import io.pranludi.crossfit.branch.grpc.interceptor.GrpcResponseInterceptor;
 import io.pranludi.crossfit.branch.grpc.mapper.GrpcMapper;
 import io.pranludi.crossfit.branch.service.BranchService;
 import io.pranludi.crossfit.protobuf.BranchDTO;
+import io.pranludi.crossfit.protobuf.BranchResult;
+import io.pranludi.crossfit.protobuf.ResultCode;
 import io.pranludi.crossfit.protobuf.branch.AllBranchesRequest;
 import io.pranludi.crossfit.protobuf.branch.AllBranchesResponse;
+import io.pranludi.crossfit.protobuf.branch.AllBranchesResponse.BranchesResult;
 import io.pranludi.crossfit.protobuf.branch.BranchServiceGrpc.BranchServiceImplBase;
 import io.pranludi.crossfit.protobuf.branch.GetBranchRequest;
 import io.pranludi.crossfit.protobuf.branch.GetBranchResponse;
@@ -41,7 +44,13 @@ public class BranchGrpcService extends BranchServiceImplBase {
 
         BranchEntity branch = branchService.save(branchEntity).apply(makeEnvironment.make());
         SaveBranchResponse res = SaveBranchResponse.newBuilder()
-            .setBranch(GrpcMapper.INSTANCE.branchEntityToProto(branch))
+            .setCode(ResultCode.SUCCESS)
+            .setMessage("SUCCESS")
+            .setResult(
+                BranchResult.newBuilder()
+                    .setBranch(GrpcMapper.INSTANCE.branchEntityToProto(branch))
+                    .build()
+            )
             .build();
         resObserver.onNext(res);
         resObserver.onCompleted();
@@ -51,7 +60,13 @@ public class BranchGrpcService extends BranchServiceImplBase {
     public void getBranch(GetBranchRequest req, StreamObserver<GetBranchResponse> resObserver) {
         BranchEntity branch = branchService.findById().apply(makeEnvironment.make());
         GetBranchResponse res = GetBranchResponse.newBuilder()
-            .setBranch(GrpcMapper.INSTANCE.branchEntityToProto(branch))
+            .setCode(ResultCode.SUCCESS)
+            .setMessage("SUCCESS")
+            .setResult(
+                BranchResult.newBuilder()
+                    .setBranch(GrpcMapper.INSTANCE.branchEntityToProto(branch))
+                    .build()
+            )
             .build();
         resObserver.onNext(res);
         resObserver.onCompleted();
@@ -66,7 +81,13 @@ public class BranchGrpcService extends BranchServiceImplBase {
         }
 
         AllBranchesResponse res = AllBranchesResponse.newBuilder()
-            .addAllBranches(result)
+            .setCode(ResultCode.SUCCESS)
+            .setMessage("SUCCESS")
+            .setResult(
+                BranchesResult.newBuilder()
+                    .addAllBranches(result)
+                    .build()
+            )
             .build();
         resObserver.onNext(res);
         resObserver.onCompleted();
