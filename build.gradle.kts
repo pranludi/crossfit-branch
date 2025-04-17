@@ -27,6 +27,7 @@ repositories {
 }
 
 extra["springGrpcVersion"] = "0.6.0"
+extra["springCloudVersion"] = "2024.0.1"
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -48,6 +49,11 @@ dependencies {
   implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
   implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.3")
 
+  implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+  implementation("org.springframework.cloud:spring-cloud-starter-config")
+  implementation("io.micrometer:micrometer-tracing-bridge-brave")
+  implementation("io.zipkin.reporter2:zipkin-reporter-brave")
+
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.springframework.grpc:spring-grpc-test")
   testImplementation("org.springframework.kafka:spring-kafka-test")
@@ -57,6 +63,7 @@ dependencies {
 dependencyManagement {
   imports {
     mavenBom("org.springframework.grpc:spring-grpc-dependencies:${property("springGrpcVersion")}")
+    mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
   }
 }
 

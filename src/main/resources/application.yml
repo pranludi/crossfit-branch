@@ -5,7 +5,9 @@ app:
 
 spring:
   application:
-    name: branch service
+    name: branch-service
+  config:
+    import: optional:configserver:http://localhost:8888
   datasource:
     hikari:
       driver-class-name: org.h2.Driver
